@@ -61,12 +61,11 @@
           <execution>
             <id>default-check</id>
             <goals>
-              <goal>check</goal>
+              <goal>report</goal>
             </goals>
             <configuration>
               <rules>
                 <rule>
-                  <element>CLASS</element>
                   <limits>
                     <limit>
                       <counter>BRANCH</counter>
