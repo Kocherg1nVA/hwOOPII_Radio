@@ -2,8 +2,8 @@ package ru.netology;
 
 public class Radio {
 
-    protected int currentStation; // текущая станция
-    protected int currentVolume; // текущий уровень громкости
+    public int currentStation; // текущая станция
+    public int currentVolume; // текущий уровень громкости
 
     public int getCurrentStation() {
         return currentStation;

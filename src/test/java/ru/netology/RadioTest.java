@@ -9,7 +9,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/nextStation.csv")
-    public void setNextStation(int currentStation, int expected) {
+    public void setNextStationTest(int currentStation, int expected) {
         Radio next = new Radio();
         next.setNextStation(currentStation);
         int actual = next.getCurrentStation();
@@ -18,7 +18,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/prevStation.scv")
-    public void setPrevStation(int currentStation, int expected) {
+    public void setPrevStationTest(int currentStation, int expected) {
         Radio prev = new Radio();
         prev.setPrevStation(currentStation);
         int actual = prev.getCurrentStation();
