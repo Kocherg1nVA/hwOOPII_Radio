@@ -39,12 +39,12 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/reduceVolume.csv")
-    public void reduceVolumeTest(int currentVolume, int expexted) {
+    public void reduceVolumeTest(int currentVolume, int expected) {
         Radio red = new Radio();
         red.setCurrentVolume(currentVolume);
         red.reduceVolume();
         int actual = red.getCurrentVolume();
-        Assertions.assertEquals(expexted, actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
 

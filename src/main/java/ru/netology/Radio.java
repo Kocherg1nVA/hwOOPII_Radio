@@ -28,23 +28,21 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (currentStation < 9) {
-            currentStation = currentStation + 1;
-            return;
-        }
         if (currentStation == 9) {
             currentStation = 0;
+        } else {
+            currentStation = currentStation + 1;
         }
+        setCurrentStation(currentStation);
     }
 
     public void prevStation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
-            return;
-        }
         if (currentStation == 0) {
             currentStation = 9;
+        } else {
+            currentStation = currentStation - 1;
         }
+        setCurrentStation(currentStation);
     }
 
     public void increaseVolume() {
