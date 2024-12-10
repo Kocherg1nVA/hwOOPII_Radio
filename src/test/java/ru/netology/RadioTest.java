@@ -8,19 +8,17 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 public class RadioTest {
 
     @ParameterizedTest
-    @CsvFileSource (files = "src/test/resources/nextStationDependingOnNumberOfStation.csv")
-    public void switchNextStationsWithSize(int totalNumberOfStations, int currentStation,
-                                                          int expected) {
-        Radio service = new Radio(totalNumberOfStations);
+    @CsvFileSource (files = "src/test/resources/nextStationWithSize.csv")
+    public void switchNextStationsWithSize(int size, int currentStation, int expected) {
+        Radio service = new Radio(size);
         service.setCurrentStation(currentStation);
         service.nextStation();
         Assertions.assertEquals(expected, service.getCurrentStation());
     }
     @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/prevStationDependingOnNumberOfStations.csv")
-    public void switchPrevStationsWithSize(int totalNumberOfStations, int currentStation,
-                                                              int expected) {
-        Radio service = new Radio(totalNumberOfStations);
+    @CsvFileSource(files = "src/test/resources/prevStationWithSize.csv")
+    public void switchPrevStationsWithSize(int size, int currentStation, int expected) {
+        Radio service = new Radio(size);
         service.setCurrentStation(currentStation);
         service.prevStation();
         Assertions.assertEquals(expected,service.getCurrentStation());
