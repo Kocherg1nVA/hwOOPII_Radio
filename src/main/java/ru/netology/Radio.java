@@ -1,60 +1,66 @@
 package ru.netology;
 
-public class Radio {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
+public class Radio {
+    private int size; // количество радиостанций
+    private int minStation; // номер первой станции
+    private int maxStation; // номер последней станции
     private int currentStation; // текущая станция
+    private int minVolume; // минимальный уровень громкости
+    private int maxVolume; // максимальный уровень громкости
     private int currentVolume; // текущий уровень громкости
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0 | newCurrentStation > 9) {
-            return;
-        }
-        currentStation = newCurrentStation;
-    }
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0 | newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
-    }
-
     public void nextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
-        } else {
-            currentStation = currentStation + 1;
+        if (currentStation < minStation | currentStation > maxStation) {
+            currentStation = minStation;
+            return;
         }
-        setCurrentStation(currentStation);
+        if (currentStation == maxStation) {
+            currentStation = minStation;
+            return;
+        }
+        currentStation = currentStation + 1;
     }
 
     public void prevStation() {
-        if (currentStation == 0) {
-            currentStation = 9;
-        } else {
-            currentStation = currentStation - 1;
+        if (currentStation < minStation | currentStation > maxStation) {
+            currentStation = minStation;
+            return;
         }
-        setCurrentStation(currentStation);
+        if (currentStation == minStation) {
+            currentStation = maxStation;
+            return;
+        }
+        currentStation = currentStation - 1;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
+        if (currentVolume < minVolume | currentVolume > maxVolume){
+            currentVolume = minVolume;
+            return;
         }
+        if (currentVolume == maxVolume) {
+            return;
+        }
+            currentVolume = currentVolume + 1;
     }
 
     public void reduceVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+        if (currentVolume < minVolume | currentVolume > maxVolume) {
+            currentVolume = minVolume;
+            return;
         }
+        if (currentVolume == minVolume) {
+            return;
+        }
+            currentVolume = currentVolume - 1;
     }
 }
 
